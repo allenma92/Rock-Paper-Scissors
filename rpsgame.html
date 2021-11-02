@@ -4,101 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/0c46cfcba4.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="modal.css"/>
+    <title>Rock Paper Scissors</title>
+
 </head>
-<script>
-    //array to create random computer choice
-    const compArray = ['Rock', 'Paper', 'Scissors'];
-    
-    //create variables for game
-    let computerChoice = computerPlay();
-    computerChoice = computerChoice .toLowerCase();
-    let playerChoice = prompt('Rock, Paper, or Scissors?');
-    playerChoice = playerChoice.toLowerCase();
-
-    //create variables for result after loop run
-    let player = 0;
-    let computer = 0;
-    let tie = 0;
-
-    //create function to have computer choice randomized
-    function computerPlay() {
-       return compArray[Math.floor(Math.random() * compArray.length)];
-    }
-
-
-    //create function to play a round
-    function playRound(playerChoice, computerChoice) {
-        if (playerChoice == computerChoice) {
-            tie++;
-            return console.log('Draw!');
-        } 
-        else if (playerChoice == 'rock' && computerChoice == 'scissors') {
-            player++;
-            return console.log('You Win! Rock beats Scissors.');  
-        } 
-        else if (playerChoice == 'rock' && computerChoice == 'paper') {
-            computer++;
-            return console.log('Oh no! You lost, Paper beats Rock.')
-        } 
-        else if (playerChoice == 'paper' && computerChoice == 'rock') {
-            player++;
-            return console.log('You Win! Paper beats Rock.');
-        } 
-        else if (playerChoice == 'paper' && computerChoice == 'scissors') {
-            computer++;
-            return console.log('Oh no! You lost, Scissors beats Paper.')
-        } 
-        else if (playerChoice == 'scissors' && computerChoice == 'paper') {
-            player++;
-            return console.log('You Win! Scissors beats Paper.');
-        } 
-        else if (playerChoice == 'scissors' && computerChoice == 'paper') {
-            computer++;
-            return console.log('Oh no! You lost, Rock beats Scissors.')
-        }
-    }
-    console.log(playRound(playerChoice, computerChoice));
-
-    //function to create results after loop
-    function result() {
-        if ((tie > player) && (tie > computer)) {
-            console.log('Oooh! A Tie!')
-        }
-        else if (player > computer) {
-            console.log('You are smarter than a computer!');
-        }
-        else {
-            console.log('The Machine takeover has begun...');
-        }
-    }
-    //loop for 5 rounds
-    for (let step = 0; step < 5; step ++) {
-        let computerChoice = computerPlay();
-        computerChoice = computerChoice .toLowerCase();
-        let playerChoice = prompt('Rock, Paper, or Scissors?');
-        playerChoice = playerChoice.toLowerCase();
-
-        console.log("Computer Picks " +  computerChoice);
-
-        playRound(playerChoice, computerChoice);
-
-    }
-
-    //result to be printed in log
-result();        
-
-
-
-  
-            
-              
-
-
-
-
-</script>
 <body>
-    
+    <div class="container">
+        <header class="header">
+        <h1>Rock Paper Scissors</h1>
+        <button id="restart" class="restart-btn">Restart Game</button>
+        <div id="score" class="score">
+            <p>Player: 0</p>
+            <p>Computer: 0</p>
+        </div>
+        </header>
+        <h2>Make Your Selection</h2>
+        <div class="choices">
+          <i id="rock" class="choice far fa-hand-rock fa-10x"></i>
+          <i id="paper" class="choice far fa-hand-paper fa-10x"></i>
+          <i id="scissors" class="choice far fa-hand-scissors fa-10x"></i>  
+        </div>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal">
+        <div id="result" class="modal-content">
+            <h1 class="text-win">You Win</h1>
+            <i class="far fa-hand-rock fa-10x"></i>
+            <p>Computer Chose Rock</p>
+        </div>
+    </div>
+    <script src="js-file.js"></script>
+
 </body>
 </html>
